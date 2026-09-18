@@ -44,9 +44,20 @@ $$ Z = Y W_2^T $$
 
 Soient $X \in \mathbb{R}^{1 \times 3}$, $Y \in \mathbb{R}^{1 \times 4}$ et $Z \in \mathbb{R}^{1 \times 2}$.
 
-On a donc $W_1 \in \mathbb{R}^{4 \times 3}$ et $W_2 \in \mathbb{R}^{2 \times 4}
+On a donc $W_1 \in \mathbb{R}^{4 \times 3}$ et $W_2 \in \mathbb{R}^{2 \times 4}$
 
-*Couche 1 et cachée*: 4 /times 3
+*Couche 1 et cachée*: $4 \times 3$ = 12 poids
+
+*Couche cachée et de sortie*: $4 \times 2$ = 8 poids
+
+Il y a **20** paramètres sans biais.
+
+Pour la couche cachée, le biais est une matrice qui appartient à $\mathbb{R}^{1 \times 4}$
+
+Pour la couche cachée, le biais est une matrice qui appartient à $\mathbb{R}^{1 \times 2}$
+
+Soient **26** paramètres avec biais.
+
 ## b
 H = ReLU( X · W1^T + b1 )
 Y = H · W2^T + b2

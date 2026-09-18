@@ -77,6 +77,7 @@ Pour la couche cachée, le biais est une matrice qui appartient à $\mathbb{R}^{
 Soient **26** paramètres avec biais.
 
 ## b
+
 $$H = ReLU( X W_1^T + b_1 )$$
 
 $$Y = H W_2^T + b_2$$
@@ -145,7 +146,36 @@ $\frac{\partial f}{\partial x} = \frac{\partial f}{\partial q} \frac{\partial q}
 
 $\frac{\partial f}{\partial y} = \frac{\partial f}{\partial q} \frac{\partial q}{\partial y} = - \frac{x}{y^2}$
 
-## d (fait)
+## d
+
+Soient: 
+
+$x' = x - \eta frac{\partial f}{\partial x}$
+
+$y' = y - \eta frac{\partial f}{\partial y}$
+
+$z' = z - \eta frac{\partial f}{\partial z}$
+
+<br><br>
+
+$x' = 2 - \frac{1}{4} = \frac{7}{4}$
+
+$y' = 4 + \frac{1}{8} = \frac{33}{8}$
+
+$z' = -1$
+
+<br><br>
+
+$f' = \frac{x'}{y'} + z'$
+
+$f' = \frac{7 \times 8}{4 \times 33} - 1$
+
+$f' = - \frac{19}{33}$
+
+$f = \frac{1}{2}$  donc $f' < f$
+
+La valeur de la fonction a diminué comme attendu.
+
 ## e (à vérifier!)
 ## f (à faire)
 Tâche                   | Fonction finale (Sortie) | Fonction de perte (Loss)

@@ -38,6 +38,7 @@ La commande pour obtenir la version est ___python --version___. Pour le chemin d
 
 Sans le biais:
 $$ Y = X W1^T $$
+
 $$ Z = Y W2^T $$
 ## b
 H = ReLU( X · W1^T + b1 )

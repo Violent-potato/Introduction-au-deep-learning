@@ -77,8 +77,9 @@ Pour la couche cachée, le biais est une matrice qui appartient à $\mathbb{R}^{
 Soient **26** paramètres avec biais.
 
 ## b
-H = ReLU( X · W1^T + b1 )
-Y = H · W2^T + b2
+$$H = ReLU( X W_1^T + b_1 )$$
+
+$$Y = H W_2^T + b_2$$
 
 <br><br>
 
@@ -136,7 +137,13 @@ $\frac{\partial f}{\partial z} = 1$
 
 $\frac{\partial q}{\partial x} = \frac{1}{y}$
 
-$\frac{\partial q}{\partial z} = - \frac{x}{y^2}$
+$\frac{\partial q}{\partial y} = - \frac{x}{y^2}$
+
+<br>
+
+$\frac{\partial f}{\partial x} = \frac{\partial f}{\partial q} \frac{\partial q}{\partial x} = \frac{1}{y}$
+
+$\frac{\partial f}{\partial y} = \frac{\partial f}{\partial q} \frac{\partial q}{\partial y} = - \frac{x}{y^2}$
 
 ## d (fait)
 ## e (à vérifier!)
@@ -147,9 +154,16 @@ Classification binaire  | 1. ___________           | A. ___________
 Classification multi    | 2. ___________           | B. ___________
 Régression pure         | 3. Identité (aucune)     | C. MSE (Mean Squared Error)
 # Ex 4: Votre premier réseau de neurones (∼45mn, – moyen)
-## a
-## b
-## c
+## a (à faire) Expliquez brièvement à quoi servent les arguments batch_size et shuffle dans le DataLoader. Pourquoi shuffle doit-il avoir une valeur différente pour l'entraînement et pour le test ?
+## b (à faire)
+Dans la méthode forward, pourquoi utilise-t-on torch.flatten(x, 1) avant de passer les données à la couche linéaire ?
+
+Pourquoi est-il crucial de ne pas ajouter de fonction d'activation Softmax à la fin de notre réseau quand on s'apprête à utiliser nn.CrossEntropyLoss dans PyTorch ?
+
+## c (à faire)
+
+Quelle est la différence fondamentale entre optimizer.zero_grad() et loss.backward() ?
+
 ## d
 ## e
 # Ex 5: Utilisation de TensorBoard (∼45mn, – moyen)

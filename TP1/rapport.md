@@ -42,9 +42,9 @@ $$ Y = X W_1^T $$
 
 $$ Z = Y W_2^T $$
 
-Soient X \in \reels^{1x3} Y \in \reels^{1x4} et Z \in \reels^{1x2}.
+Soient $X \in \mathbb{R}^{1 \times 3}$, $Y \in \mathbb{R}^{1 \times 4}$ et $Z \in \mathbb{R}^{1 \times 2}$.
 
-On a donc W_1 \in \reels^{4x3} et W_2 \in \reels^{2x4}
+On a donc $W_1 \in \mathbb{R}^{4 \times 3}$ et $W_2 \in \mathbb{R}^{2 \times 4}
 
 *Couche 1 et cachée*: 4 /times 3
 ## b

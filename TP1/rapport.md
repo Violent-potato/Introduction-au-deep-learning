@@ -37,7 +37,8 @@ La commande pour obtenir la version est ___python --version___. Pour le chemin d
 ![3.a.jpg](images/3.a.jpg)
 
 Sans le biais:
-$$ Y = X W1^T $$
+
+$$ Y = X W_1^T $$
 
 $$ Z = Y W2^T $$
 ## b

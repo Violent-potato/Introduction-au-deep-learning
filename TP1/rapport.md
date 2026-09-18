@@ -46,7 +46,7 @@ Soient $X \in \mathbb{R}^{1 \times 3}$, $Y \in \mathbb{R}^{1 \times 4}$ et $Z \i
 
 On a donc $W_1 \in \mathbb{R}^{4 \times 3}$ et $W_2 \in \mathbb{R}^{2 \times 4}$
 
-
+<br><br><br>
 
 
 *Couche 1 et cachée*: $4 \times 3$ = 12 poids
@@ -54,10 +54,11 @@ On a donc $W_1 \in \mathbb{R}^{4 \times 3}$ et $W_2 \in \mathbb{R}^{2 \times 4}$
 *Couche cachée et de sortie*: $4 \times 2$ = 8 poids
 
 
-
+<br><br><br>
 
 Il y a **20** paramètres sans biais.
 
+<br><br><br>
 
 Pour la couche cachée, le biais est une matrice qui appartient à $\mathbb{R}^{1 \times 4}$
 

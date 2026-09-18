@@ -150,7 +150,7 @@ $\frac{\partial f}{\partial y} = \frac{\partial f}{\partial q} \frac{\partial q}
 
 Soient: 
 
-$x' = x - \eta frac{\partial f}{\partial x}$
+$x' = x - \eta (frac{\partial f}{\partial x})$
 
 $y' = y - \eta frac{\partial f}{\partial y}$
 

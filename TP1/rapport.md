@@ -84,13 +84,14 @@ Y  : (N, m2)
 
 ![3.c.jpg](images/3.c.jpg)
 
-$q = x \divides y$
+$q = \frac{x}{y}$
 
 $f = q + z$
 
 
 
-$q = 2 \divides 4$
+$q = \frac{2}{4}$
+
 
 $q = 0.5$
 

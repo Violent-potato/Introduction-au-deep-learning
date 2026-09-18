@@ -25,19 +25,38 @@ ___ReqMem___ correspond à "requested memory", soit la mémoire allouée pour ce
 ___MaxRSS___, lui, correspond à la mémoire utilisée pour réaliser la tâche.
 
 # Ex 2: Création d'un environnement virtuel Python (∼20mn, – facile)
-## a
 ## b
-## c
+La commande pour obtenir la version est ___python --version___. Pour le chemin du binaire, c'est ___which python___
+![2.b.png](images/2.b.png)
+
 ## d
 ## e
 ## f
-# Ex 3: Exercices théoriques (Papier & Markdown) (∼30mn, – moyen)
-## a
+# Ex 3: Exercices théoriques (Papier & Markdown) (∼30mn, – moyen) (à faire en dehors de TSP)
+## a (fait)
 ## b
-## c
-## d
-## e
-## f
+H = ReLU( X · W1^T + b1 )
+Y = H · W2^T + b2
+
+Soient m1, m2 dans R
+Dimensions :
+X  : (N, 3)
+W1 : (m1, 3)
+b1 : (1, m1) -> diffusé en (N, m1)
+H  : (N, m1)
+W2 : (m2, m1)
+b2 : (1, m2) -> diffusé en (N, m2)
+Y  : (N, m2)
+
+## c (fait)
+## d (fait)
+## e (à vérifier!)
+## f (à faire)
+Tâche                   | Fonction finale (Sortie) | Fonction de perte (Loss)
+------------------------|--------------------------|---------------------------
+Classification binaire  | 1. ___________           | A. ___________
+Classification multi    | 2. ___________           | B. ___________
+Régression pure         | 3. Identité (aucune)     | C. MSE (Mean Squared Error)
 # Ex 4: Votre premier réseau de neurones (∼45mn, – moyen)
 ## a
 ## b
@@ -46,7 +65,5 @@ ___MaxRSS___, lui, correspond à la mémoire utilisée pour réaliser la tâche.
 ## e
 # Ex 5: Utilisation de TensorBoard (∼45mn, – moyen)
 ## a
-## b
-## c
 ## d
 ## e

@@ -33,7 +33,12 @@ La commande pour obtenir la version est ___python --version___. Pour le chemin d
 ## e
 ## f
 # Ex 3: Exercices théoriques (Papier & Markdown) (∼30mn, – moyen) (à faire en dehors de TSP)
-## a (fait)
+## a
+![3.a.jpg](images/3.a.jpg)
+
+Sans le biais:
+$$ Y = X W1^T $$
+$$ Z = Y W2^T $$
 ## b
 H = ReLU( X · W1^T + b1 )
 Y = H · W2^T + b2

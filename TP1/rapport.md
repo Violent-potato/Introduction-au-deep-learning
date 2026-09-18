@@ -46,15 +46,23 @@ Soient $X \in \mathbb{R}^{1 \times 3}$, $Y \in \mathbb{R}^{1 \times 4}$ et $Z \i
 
 On a donc $W_1 \in \mathbb{R}^{4 \times 3}$ et $W_2 \in \mathbb{R}^{2 \times 4}$
 
+
+
+
 *Couche 1 et cachée*: $4 \times 3$ = 12 poids
 
 *Couche cachée et de sortie*: $4 \times 2$ = 8 poids
 
+
+
+
 Il y a **20** paramètres sans biais.
+
 
 Pour la couche cachée, le biais est une matrice qui appartient à $\mathbb{R}^{1 \times 4}$
 
 Pour la couche cachée, le biais est une matrice qui appartient à $\mathbb{R}^{1 \times 2}$
+
 
 Soient **26** paramètres avec biais.
 
@@ -72,7 +80,24 @@ W2 : (m2, m1)
 b2 : (1, m2) -> diffusé en (N, m2)
 Y  : (N, m2)
 
-## c (fait)
+## c
+
+![3.c.jpg](images/3.c.jpg)
+
+$q = x \divides y$
+
+$f = q + z$
+
+
+
+$q = 2 \divides 4$
+
+$q = 0.5$
+
+
+$f = 0.5 + 0$
+
+$f = 0.5$
 ## d (fait)
 ## e (à vérifier!)
 ## f (à faire)

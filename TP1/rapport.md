@@ -46,7 +46,7 @@ Soient $X \in \mathbb{R}^{1 \times 3}$, $Y \in \mathbb{R}^{1 \times 4}$ et $Z \i
 
 On a donc $W_1 \in \mathbb{R}^{4 \times 3}$ et $W_2 \in \mathbb{R}^{2 \times 4}$
 
-<br><br><br>
+<br><br>
 
 
 *Couche 1 et cachée*: $4 \times 3$ = 12 poids
@@ -54,22 +54,25 @@ On a donc $W_1 \in \mathbb{R}^{4 \times 3}$ et $W_2 \in \mathbb{R}^{2 \times 4}$
 *Couche cachée et de sortie*: $4 \times 2$ = 8 poids
 
 
-<br><br><br>
+<br><br>
 
 Il y a **20** paramètres sans biais.
 
-<br><br><br>
+<br><br>
 
 Pour la couche cachée, le biais est une matrice qui appartient à $\mathbb{R}^{1 \times 4}$
 
 Pour la couche cachée, le biais est une matrice qui appartient à $\mathbb{R}^{1 \times 2}$
 
+<br><br>
 
 Soient **26** paramètres avec biais.
 
 ## b
 H = ReLU( X · W1^T + b1 )
 Y = H · W2^T + b2
+
+<br><br>
 
 Soient m1, m2 dans R
 Dimensions :
@@ -89,17 +92,18 @@ $q = \frac{x}{y}$
 
 $f = q + z$
 
-
+<br><br>
 
 $q = \frac{2}{4}$
 
 
 $q = 0.5$
 
-
+<br><br>
 $f = 0.5 + 0$
 
 $f = 0.5$
+
 ## d (fait)
 ## e (à vérifier!)
 ## f (à faire)

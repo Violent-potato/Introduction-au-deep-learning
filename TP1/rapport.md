@@ -195,8 +195,16 @@ Pourquoi est-il crucial de ne pas ajouter de fonction d'activation Softmax à la
 Quelle est la différence fondamentale entre optimizer.zero_grad() et loss.backward() ?
 
 ## d
-## e
+
+Pourquoi utilise-t-on le bloc with torch.no_grad(): lors de l'évaluation ? Quel est l'avantage en termes de ressources matérielles ?
+
+Si votre classificateur prédisait les classes de manière purement aléatoire, à quelle précision (accuracy) environ devriez-vous vous attendre sur le jeu de test CIFAR-10 ?
+
+
 # Ex 5: Utilisation de TensorBoard (∼45mn, – moyen)
 ## a
+
+Pourquoi est-il important d'inclure la date, l'heure et les hyperparamètres dans le nom du dossier de logs (run_name) ?
+
 ## d
 ## e

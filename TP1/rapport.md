@@ -30,8 +30,16 @@ La commande pour obtenir la version est ___python --version___. Pour le chemin d
 ![2.b.png](images/2.b.png)
 
 ## d
-## e
+
+![CUDA_false.png](images/CUDA_false.png)
+
+On a probablement ce message d'erreur car ___build CPU-only___ a été installé ou que le GPU est non alloué par Slurm.
+
 ## f
+
+![tensorboard.png](images/tensorboard.png)
+___pip show tensorboard___
+
 # Ex 3: Exercices théoriques (Papier & Markdown) (∼30mn, – moyen) (à faire en dehors de TSP)
 ## a
 ![3.a.jpg](images/3.a.jpg)
@@ -75,13 +83,21 @@ Y = H · W2^T + b2
 <br><br>
 
 Soient m1, m2 dans R
+
 Dimensions :
+
 X  : (N, 3)
+
 W1 : (m1, 3)
+
 b1 : (1, m1) -> diffusé en (N, m1)
+
 H  : (N, m1)
+
 W2 : (m2, m1)
+
 b2 : (1, m2) -> diffusé en (N, m2)
+
 Y  : (N, m2)
 
 ## c
@@ -94,6 +110,8 @@ $f = q + z$
 
 <br><br>
 
+*Forward pass*
+
 $q = \frac{2}{4}$
 
 
@@ -102,7 +120,23 @@ $q = 0.5$
 <br><br>
 $f = 0.5 + 0$
 
-$f = 0.5$
+**$f = 0.5$**
+
+<br><br>
+
+*Backpropagation*
+
+$\frac{\partial f}{\partial f} = 1$
+
+$\frac{\partial f}{\partial q} = 1$
+
+$\frac{\partial f}{\partial z} = 1$
+
+<br><br>
+
+$\frac{\partial q}{\partial x} = \frac{1}{y}$
+
+$\frac{\partial q}{\partial z} = - \frac{x}{y^2}$
 
 ## d (fait)
 ## e (à vérifier!)

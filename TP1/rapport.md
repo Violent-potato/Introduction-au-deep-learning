@@ -42,7 +42,7 @@ $$ Y = X W_1^T $$
 
 $$ Z = Y W_2^T $$
 
-Soient X \in \reels^{1x3}, Y \in \reels^{1x4} et Z \in \reels^{1x2}.
+Soient X \in \reels^{1x3} Y \in \reels^{1x4} et Z \in \reels^{1x2}.
 
 On a donc W_1 \in \reels^{4x3} et W_2 \in \reels^{2x4}
 

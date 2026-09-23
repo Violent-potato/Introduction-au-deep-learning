@@ -17,28 +17,22 @@ transform = transforms.Compose([
 trainset = datasets.CIFAR10(root='./data', train=True, download=True, transform=transform)
 testset  = datasets.CIFAR10(root='./data', train=False, download=True, transform=transform)
 
-# Hyperparamètres (faciles à modifier pour nos futures expériences)
 hparams = dict(model="MLP", batch_size=32, lr=1e-2, seed=0, weight_decay=0.0)
 
-# 1. Création d'un nom de dossier unique (modèle + hparams + timestamp)
 run_name = f"{hparams['model']}/bs{hparams['batch_size']}_lr{hparams['lr']}_{datetime.datetime.now().strftime('%Y%m%d-%H%M%S')}"
 logdir = os.path.join("runs", run_name)
 print("Logdir:", logdir)
 
-# Instanciation du SummaryWriter
 writer = SummaryWriter(log_dir=logdir)
 
-# 2. Séparation du jeu de données en train/val
 N = len(trainset)
 val_size = int(0.1 * N)
 train_size = N - val_size
 
-# random_split avec une graine fixe pour la reproductibilité
 train_subset, val_subset = random_split(
     trainset, [train_size, val_size], generator=torch.Generator().manual_seed(0)
 )
 
-# Création des DataLoaders
 trainloader = DataLoader(train_subset, batch_size=hparams["batch_size"], shuffle=True, pin_memory=True)
 valloader   = DataLoader(val_subset,   batch_size=hparams["batch_size"], shuffle=False, pin_memory=True)
 
@@ -54,8 +48,8 @@ def get_num_workers(default=2, cap=4):
 class MLP(nn.Module):
     def __init__(self):
         super().__init__()
-        self.fc1 = nn.Linear(32 * 32 * 3, 128)  # couche cachée
-        self.fc2 = nn.Linear(128, 10)           # couche de sortie (logits)
+        self.fc1 = nn.Linear(32 * 32 * 3, 128)
+        self.fc2 = nn.Linear(128, 10)
 
     def forward(self, x):
         x = torch.flatten(x, 1)
@@ -122,18 +116,15 @@ for epoch in range(1, EPOCHS + 1):
         running_total += y.size(0)
         global_step += 1
 
-    # Métriques de fin d'époque
     train_loss = running_loss_sum / running_total
     val_loss, val_acc = epoch_metrics(valloader, model, criterion, device)
 
-    # Logging époque
     writer.add_scalar("Loss/train", train_loss, epoch)
     writer.add_scalar("Loss/val", val_loss, epoch)
     writer.add_scalar("Accuracy/val", val_acc, epoch)
 
     print(f"Epoch {epoch:02d} | train_loss={train_loss:.4f} | val_loss={val_loss:.4f} | val_acc={val_acc:.3f}")
 
-# Fin d'entraînement : force l'écriture des données sur le disque
 writer.flush()
 writer.close()
 

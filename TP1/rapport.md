@@ -176,35 +176,62 @@ $f = \frac{1}{2}$  donc $f' < f$
 
 La valeur de la fonction a diminué comme attendu.
 
-## e (à vérifier!)
-## f (à faire)
+## e
+
+Un réseau profond est une composition de fonctions. La chain rule décompose le gradient global en produit de dérivées locales, calculables couche par couche, au lieu de dériver une expression complexe d'un seul bloc.
+Un seul exemple donne un gradient trop bruité. Tout le dataset donne un gradient précis mais trop coûteux à calculer. Le mini-batch est un compromis qui exploite le parallélisme du GPU tout en gardant un gradient stable
+
+## f
 Tâche                   | Fonction finale (Sortie) | Fonction de perte (Loss)
 ------------------------|--------------------------|---------------------------
-Classification binaire  | 1. ___________           | A. ___________
-Classification multi    | 2. ___________           | B. ___________
+Classification binaire  | 1. Sigmoïde           | A. Binary Cross-Entropy
+Classification multi    | 2. Softmax           | B. Cross-Entropy
 Régression pure         | 3. Identité (aucune)     | C. MSE (Mean Squared Error)
+
 # Ex 4: Votre premier réseau de neurones (∼45mn, – moyen)
-## a (à faire) Expliquez brièvement à quoi servent les arguments batch_size et shuffle dans le DataLoader. Pourquoi shuffle doit-il avoir une valeur différente pour l'entraînement et pour le test ?
-## b (à faire)
-Dans la méthode forward, pourquoi utilise-t-on torch.flatten(x, 1) avant de passer les données à la couche linéaire ?
+## a
+___batch_size___ fixe le nombre d'exemples traités par mise à jour. ___shuffle___ mélange l'ordre des exemples à chaque époque pour éviter que le modèle apprenne un ordre plutôt que les données. Sur le test, ___shuffle=False___ car aucune mise à jour n'a lieu.
 
-Pourquoi est-il crucial de ne pas ajouter de fonction d'activation Softmax à la fin de notre réseau quand on s'apprête à utiliser nn.CrossEntropyLoss dans PyTorch ?
+## b
+Les images sont en (N, 3, 32, 32) mais ___nn.Linear___ attend (N, features). Aplatir à partir de la dimension 1 garde le batch intact.
 
-## c (à faire)
-
-Quelle est la différence fondamentale entre optimizer.zero_grad() et loss.backward() ?
+CrossEntropyLoss applique déjà ___log_softmax___ ___NLLLoss___ en interne. Ajouter un ___Softmax___ en sortie l'appliquerait deux fois, saturant ainsi les gradients et cassant l'entraînement.
+## c
+___zero_grad()___ remet à zéro les gradients accumulés. ___backward()___ calcule les nouveaux gradients par rétropropagation. Ni l'un ni l'autre ne met à jour les poids, ça c'est ___optimizer.step()___.
 
 ## d
-
-Pourquoi utilise-t-on le bloc with torch.no_grad(): lors de l'évaluation ? Quel est l'avantage en termes de ressources matérielles ?
-
-Si votre classificateur prédisait les classes de manière purement aléatoire, à quelle précision (accuracy) environ devriez-vous vous attendre sur le jeu de test CIFAR-10 ?
+10 classes équilibrées donc environ 10%.
 
 
 # Ex 5: Utilisation de TensorBoard (∼45mn, – moyen)
 ## a
+Le timestamp évite d'écraser les logs d'un run précédent en cas de relance.
 
-Pourquoi est-il important d'inclure la date, l'heure et les hyperparamètres dans le nom du dossier de logs (run_name) ?
+Les hyperparamètres dans le nom permettent d'identifier chaque run directement dans TensorBoard sans rouvrir chaque config.
 
 ## d
-## e
+À 0,99, la tendance ressort sans être noyée dans le bruit batch-à-batch.
+
+![5d.png](images/5d.png)
+
+Loss/train_step logue la perte d'un seul mini-batch toutes les 10 itérations, donc chaque point reflète le bruit d'échantillonnage stochastique. Loss/train moyenne sur l'époque complète. Donc ce bruit s'annule mécaniquement.
+## e (à compléter si possible. Je dois me reconnecter au cluster)
+Run 1 : LR = 1e-2, batch_size = 32
+![5.e.jpg](images/5.e.jpg)
+![img.png](images/img.png)
+résultat: 39,1%
+
+Run 2 : LR = 1e-3, batch_size = 32
+![run2.png](images/run2.png)
+![run2d.png](images/run2d.png)
+![losval2.png](images/losval2.png)
+résultat: 51%
+
+Run 3 : LR = 1e-1, batch_size = 128
+![img.png](images/run3.png)
+![losstrain3.png](images/losstrain3.png)
+![img.png](images/lossval3.png)
+résultat: 0,9%
+
+la run 2 nous donne la meilleur accuracy en validation.
+La courbe de validation augmente tandis que la perte d'entrainement diminue.
